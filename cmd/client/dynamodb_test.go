@@ -59,6 +59,8 @@ func initDynamoDB(host string, port string) (*dynamodb.Client, error) {
 }
 
 func TestGetNotifiedAt(t *testing.T) {
+	t.Setenv("AWS_ACCESS_KEY_ID", "dummy")
+	t.Setenv("AWS_SECRET_ACCESS_KEY", "dummy")
 	ctx := context.Background()
 	ctr, err := dynamodule.Run(ctx, "amazon/dynamodb-local:2.5.3")
 	defer func() {
@@ -89,6 +91,8 @@ func TestGetNotifiedAt(t *testing.T) {
 }
 
 func TestUpdateNotifiedAt(t *testing.T) {
+	t.Setenv("AWS_ACCESS_KEY_ID", "dummy")
+	t.Setenv("AWS_SECRET_ACCESS_KEY", "dummy")
 	ctx := context.Background()
 	ctr, err := dynamodule.Run(ctx, "amazon/dynamodb-local:2.5.3")
 	defer func() {
