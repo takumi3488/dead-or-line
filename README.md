@@ -17,6 +17,7 @@ sequenceDiagram;
 ## 環境変数
 
 `TARGET_URL`: 監視対象のURL
+`NOTICE_INTERVAL`: 監視対象のURLが連続で2xx以外を返した時に通知しすぎないように空ける最低間隔(分)
 `DYNAMODB_TABLE_NAME`: DynamoDBテーブル名
 `DYNAMODB_KEY`: DynamoDBで使用するキー名
 `LINE_TOKEN`: LINE botのchannel access token
