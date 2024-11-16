@@ -20,7 +20,7 @@ type DynamoDB struct {
 
 func NewDynamoDB(client *dynamodb.Client, tableName string, key string) *DynamoDB {
 	return &DynamoDB{
-		Client: client,
+		Client:    client,
 		TableName: tableName,
 		Key:       key,
 	}
