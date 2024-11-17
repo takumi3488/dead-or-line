@@ -7,12 +7,18 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/takumi3488/dead-or-line/cmd/client"
 )
 
 func main() {
+	lambda.Start(handler)
+}
+
+func handler(ctx context.Context, event events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	// Load environment variables
 	targetUrl, ok := os.LookupEnv("TARGET_URL")
 	if !ok {
@@ -48,7 +54,6 @@ func main() {
 	}
 
 	// Initialize DynamoDB client
-	ctx := context.Background()
 	cfg, err := config.LoadDefaultConfig(ctx, config.WithDefaultRegion(""))
 	if err != nil {
 		panic("configuration error, " + err.Error())
@@ -62,7 +67,10 @@ func main() {
 	notifiedAt := dynamoClient.GetNotifiedAt(ctx)
 	now := time.Now().Unix()
 	if !(notifiedAt == 0 || now-notifiedAt > int64(noticeIntervalInt)) {
-		return
+		return events.APIGatewayProxyResponse{
+			StatusCode: 200,
+			Body:       noticeInterval + "分以内に通知済み",
+		}, nil
 	}
 
 	// URLのステータスを確認
@@ -71,12 +79,23 @@ func main() {
 		panic("URL check error, " + err.Error())
 	}
 	if ok {
-		return
+		return events.APIGatewayProxyResponse{
+			StatusCode: 200,
+			Body:       "OK",
+		}, nil
 	}
 
 	// Lineに通知
 	message := lineClient.CreateMessage(targetUrl)
 	lineClient.Notify(message)
+
+	// Update notifiedAt
+	dynamoClient.UpdateNotifiedAt(ctx, now)
+
+	return events.APIGatewayProxyResponse{
+		StatusCode: 200,
+		Body:       "Notified",
+	}, nil
 }
 
 func isOK(url string) (bool, error) {
