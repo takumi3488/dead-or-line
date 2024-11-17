@@ -3,6 +3,7 @@ module github.com/takumi3488/dead-or-line
 go 1.23.2
 
 require (
+	github.com/aws/aws-lambda-go v1.47.0
 	github.com/aws/aws-sdk-go-v2 v1.32.4
 	github.com/aws/aws-sdk-go-v2/config v1.28.3
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.37.0

@@ -10,8 +10,8 @@ COPY . .
 RUN go build -v -o /usr/local/bin/app ./cmd
 
 
-FROM gcr.io/distroless/static-debian12:nonroot
+FROM gcr.io/distroless/static-debian12
 
-COPY --from=builder /usr/local/bin/app /usr/local/bin/app
+COPY --from=builder /usr/local/bin/app /app
 
-ENTRYPOINT ["/usr/local/bin/app"]
+ENTRYPOINT ["/app"]

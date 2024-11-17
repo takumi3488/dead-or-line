@@ -39,6 +39,9 @@ func (d *DynamoDB) GetNotifiedAt(ctx context.Context) int64 {
 		slog.Error("failed to get item", "error", err)
 		return math.MinInt64
 	}
+	if resp.Item == nil || resp.Item["NotifiedAt"] == nil {
+		return math.MinInt
+	}
 	notifiedAtString := resp.Item["NotifiedAt"].(*types.AttributeValueMemberN).Value
 	notifiedAt, err := strconv.ParseInt(notifiedAtString, 10, 64)
 	if err != nil {
