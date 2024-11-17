@@ -33,3 +33,6 @@ variable "rate_minutes" {
 variable "architecture" {
   type = string
 }
+variable "log_retention_days" {
+  type = number
+}

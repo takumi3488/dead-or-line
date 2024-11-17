@@ -23,7 +23,7 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
 
 resource "aws_cloudwatch_log_group" "lambda" {
   name              = "/aws/lambda/${aws_lambda_function.lambda_function.function_name}"
-  retention_in_days = 3
+  retention_in_days = var.log_retention_days
   skip_destroy      = false
 }
 
