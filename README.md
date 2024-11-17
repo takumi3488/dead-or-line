@@ -26,4 +26,19 @@ sequenceDiagram;
 
 ## 使い方
 
-後で書く
+### 簡単なセットアップ
+
+```sh
+git clone https://github.com/takumi3488/dead-or-line.git
+cd dead-or-line
+bash setup.sh
+```
+
+### カスタムセットアップ
+
+リポジトリをクローン後、`terraform/variables.tf` で定義された変数を `terraform/terraform.tfvars` に設定してから、`terraform` ディレクトリ内で `terraform apply` する。
+
+### 削除
+
+`bash delete.sh` か `terraform` ディレクトリ内で `terraform destroy` を実行する。
+
