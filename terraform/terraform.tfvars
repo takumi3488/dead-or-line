@@ -1,1 +1,2 @@
-tag_prefix = "dead-or-line"
+tag_prefix   = "dead-or-line"
+architecture = "arm64"

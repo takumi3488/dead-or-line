@@ -11,7 +11,7 @@ resource "aws_dynamodb_table" "table" {
   }
 
   tags = {
-    Name        = "${var.tag_prefix}-dynamodb"
+    Name = "${var.tag_prefix}-dynamodb"
   }
 }
 

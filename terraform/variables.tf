@@ -3,7 +3,7 @@ variable "tag_prefix" {
   type = string
 }
 
-# Lambdaの設定
+# 環境変数
 variable "target_url" {
   type = string
 }
@@ -25,6 +25,11 @@ variable "line_base_message" {
 variable "line_to" {
   type = string
 }
+
+# Lambdaの設定
 variable "rate_minutes" {
   type = number
+}
+variable "architecture" {
+  type = string
 }

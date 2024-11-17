@@ -17,7 +17,7 @@ provider "docker" {
 
 resource "docker_image" "lambda" {
   name         = "${aws_ecr_repository.repo.repository_url}:latest"
-  platform     = "linix/arm64"
+  platform     = "linux/${var.architecture}"
   keep_locally = true
   build {
     context = "${path.module}/../"
