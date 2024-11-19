@@ -66,7 +66,7 @@ func handler(ctx context.Context, event events.APIGatewayProxyRequest) (events.A
 	dynamoClient := client.NewDynamoDB(dynamodb.NewFromConfig(cfg), tableName, key)
 	notifiedAt := dynamoClient.GetNotifiedAt(ctx)
 	now := time.Now().Unix()
-	if !(notifiedAt == 0 || now-notifiedAt > int64(noticeIntervalInt)) {
+	if !(notifiedAt == 0 || now-notifiedAt > int64(noticeIntervalInt*60)) {
 		return events.APIGatewayProxyResponse{
 			StatusCode: 200,
 			Body:       noticeInterval + "分以内に通知済み",
