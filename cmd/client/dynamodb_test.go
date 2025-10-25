@@ -3,6 +3,7 @@ package client
 import (
 	"context"
 	"testing"
+	"time"
 
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
@@ -17,11 +18,19 @@ const key = "key"
 
 func initDynamoDB(host string, port string) (*dynamodb.Client, error) {
 	ctx := context.Background()
+	// localhostの場合は明示的に127.0.0.1を使用してIPv6の問題を回避
+	if host == "localhost" {
+		host = "127.0.0.1"
+	}
 	cfg, err := config.LoadDefaultConfig(ctx, config.WithBaseEndpoint("http://"+host+":"+port))
 	if err != nil {
 		return nil, err
 	}
 	client := dynamodb.NewFromConfig(cfg)
+
+	// DynamoDB Localが完全に起動するまで待機
+	time.Sleep(2 * time.Second)
+
 	_, err = client.CreateTable(context.Background(), &dynamodb.CreateTableInput{
 		TableName: aws.String(tableName),
 		AttributeDefinitions: []types.AttributeDefinition{{
