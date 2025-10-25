@@ -1,5 +1,5 @@
-ARG GO_VERSION=1.23.3
-FROM golang:${GO_VERSION}-alpine3.20 AS builder
+ARG GO_VERSION=1.25.1
+FROM golang:${GO_VERSION}-alpine3.21 AS builder
 
 WORKDIR /usr/src/app
 
