@@ -1,6 +1,6 @@
 module github.com/takumi3488/dead-or-line
 
-go 1.25.1
+go 1.25.4
 
 require (
 	github.com/aws/aws-lambda-go v1.50.0
