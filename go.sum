@@ -377,6 +377,8 @@ github.com/line/line-bot-sdk-go/v8 v8.17.0 h1:KMyDLXo3ni0iLCbvH1tU1y+OwWWLoM7bwv
 github.com/line/line-bot-sdk-go/v8 v8.17.0/go.mod h1:AeSRUuu7WGgveGDJb6DyKyFUOst2UB2aF6LO2cQeuXs=
 github.com/line/line-bot-sdk-go/v8 v8.18.0 h1:YbkGTFixMwTFtWhWwdu6lExbkuQGUCFHukLtC7YeMO4=
 github.com/line/line-bot-sdk-go/v8 v8.18.0/go.mod h1:AeSRUuu7WGgveGDJb6DyKyFUOst2UB2aF6LO2cQeuXs=
+github.com/line/line-bot-sdk-go/v8 v8.19.0 h1:5FD/1SprRZ8Y0FiUI6syYiBewOs0ak2tuUBMYN0wzE4=
+github.com/line/line-bot-sdk-go/v8 v8.19.0/go.mod h1:AeSRUuu7WGgveGDJb6DyKyFUOst2UB2aF6LO2cQeuXs=
 github.com/lufia/plan9stats v0.0.0-20211012122336-39d0f177ccd0 h1:6E+4a0GO5zZEnZ81pIr0yLvtUWk2if982qA3F3QD6H4=
 github.com/lufia/plan9stats v0.0.0-20211012122336-39d0f177ccd0/go.mod h1:zJYVVT2jmtg6P3p1VtQj7WsuWi/y4VnjVBn7F8KPB3I=
 github.com/magiconair/properties v1.8.10 h1:s31yESBquKXCV9a/ScB3ESkOjUYYv+X0rg8SYxI99mE=
