@@ -7,7 +7,7 @@ require (
 	github.com/aws/aws-sdk-go-v2 v1.47.1
 	github.com/aws/aws-sdk-go-v2/config v1.33.6
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.69.1
-	github.com/line/line-bot-sdk-go/v8 v8.22.0
+	github.com/line/line-bot-sdk-go/v8 v8.23.0
 	github.com/testcontainers/testcontainers-go v0.44.0
 	github.com/testcontainers/testcontainers-go/modules/dynamodb v0.44.0
 )
